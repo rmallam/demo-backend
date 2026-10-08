@@ -1,0 +1,83 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: demo-backend
+  description: Quarkus golden-path backend with Jenkins, Helm, and OpenAPI
+  tags:
+    - quarkus
+    - java
+    - golden-path
+    - jenkins
+    - helm
+  annotations:
+    backstage.io/techdocs-ref: dir:.
+    backstage.io/source-location: url:https://github.com/rmallam/demo-backend/tree/main/
+    backstage.io/view-url: https://github.com/rmallam/demo-backend
+    backstage.io/edit-url: https://github.com/rmallam/demo-backend/edit/main/catalog-info.yaml
+    github.com/project-slug: rmallam/demo-backend
+    jenkins.io/job-full-name: demo/demo-backend
+    sonarqube.org/project-key: demo-backend
+    argocd/app-name: demo-backend
+    argocd/app-namespace: openshift-gitops
+    backstage.io/kubernetes-id: demo-backend
+    backstage.io/kubernetes-namespace: demo-dev
+    vault.io/secrets-path: rhdh
+    jira/project-key: DEMO
+    jira/component: demo-backend
+    snyk.io/org-id: stub-org
+    snyk.io/org-name: stub-org
+    snyk.io/project-ids: stub
+    servicenow.com/entity-id: demo
+    jfrog-artifactory/image-name: demo-backend
+    dynatrace.com/dynatrace-entity-id: SERVICE-DEMO
+    acme.io/devfile-path: devfile.yaml
+    acme.io/helm-chart: chart
+    acme.io/mesh: ambient
+    acme.io/mesh-ingress: gateway
+    acme.io/devspaces-url: https://devspaces.apps.rosa.rosa-89s85.bhg0.p3.openshiftapps.com
+    acme.io/devspaces-factory-url: https://devspaces.apps.rosa.rosa-89s85.bhg0.p3.openshiftapps.com#https://github.com/rmallam/demo-backend?new&devfilePath=devfile.yaml
+  links:
+    - url: https://github.com/rmallam/demo-backend/tree/main/chart
+      title: Helm chart
+      icon: github
+    - url: https://github.com/rmallam/demo-backend/blob/main/Jenkinsfile
+      title: Jenkinsfile
+      icon: github
+    - url: https://jenkins-jenkins.apps.rosa.rosa-89s85.bhg0.p3.openshiftapps.com/job/demo/job/demo-backend/
+      title: Jenkins CI
+      icon: dashboard
+    - url: https://github.com/rmallam/demo-backend/blob/main/openapi.yaml
+      title: OpenAPI
+      icon: github
+spec:
+  type: service
+  lifecycle: experimental
+  owner: user:default/guest
+  system: acme-demo
+  providesApis:
+    - demo-backend-api
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: demo-backend-api
+  description: OpenAPI for demo-backend
+  tags:
+    - quarkus
+    - openapi
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: user:default/guest
+  system: acme-demo
+  definition:
+    $text: ./openapi.yaml
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: acme-demo
+  description: Demo product (website + backend)
+spec:
+  owner: user:default/guest

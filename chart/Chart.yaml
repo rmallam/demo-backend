@@ -1,0 +1,6 @@
+apiVersion: v2
+name: demo-backend
+description: Quarkus golden-path backend with Jenkins, Helm, and OpenAPI
+type: application
+version: 0.1.0
+appVersion: "1.0.0"
