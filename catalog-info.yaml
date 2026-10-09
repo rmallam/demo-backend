@@ -22,15 +22,16 @@ metadata:
     argocd/app-namespace: openshift-gitops
     backstage.io/kubernetes-id: demo-backend
     backstage.io/kubernetes-namespace: demo-dev
+    kiali.io/namespace: demo-dev
     vault.io/secrets-path: rhdh
-    jira/project-key: DEMO
+    jira/project-key: SCRUM
     jira/component: demo-backend
     snyk.io/org-id: stub-org
     snyk.io/org-name: stub-org
     snyk.io/project-ids: stub
     servicenow.com/entity-id: demo
     jfrog-artifactory/image-name: demo-backend
-    dynatrace.com/dynatrace-entity-id: SERVICE-DEMO
+    dynatrace.com/dynatrace-entity-id: SERVICE-39720C1E0047A5C0
     acme.io/devfile-path: devfile.yaml
     acme.io/helm-chart: chart
     acme.io/mesh: ambient

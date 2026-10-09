@@ -16,6 +16,7 @@ public class ApiResource {
     body.put("service", "demo-backend");
     body.put("system", "acme-demo");
     body.put("message", "ok");
+    body.put("mesh", "ambient");
     return body;
   }
 }
